@@ -16,7 +16,7 @@ handleSubmit() {
   render() {
     return (
       <div className="input-container">
-        <input type="text" placeholder="Enter city or zip" onChange={(e) => {
+        <input type="text" placeholder="Enter city, zip or state" onChange={(e) => {
           this.setState({input: e.target.value})
         }}/>
         <button onClick={ () => this.handleSubmit() }>Submit</button>
