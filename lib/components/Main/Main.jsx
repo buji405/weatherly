@@ -9,7 +9,7 @@ export default class Main extends Component {
     this.loggedIn = false;
   }
   render() {
-    if (!this.loggedIn) {
+    if (this.loggedIn) {
       return (<Welcome />);
     } else {
       return (<Weather />)
