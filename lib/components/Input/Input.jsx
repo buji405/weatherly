@@ -15,8 +15,8 @@ handleSubmit() {
 }
 
   render() {
-  let small = this.loggedIn ? 'input1' : 'input2';
-  let smallBtn = this.loggedIn ? 'input1-btn' : 'input2-btn';
+  let small = !this.loggedIn ? 'input1' : 'input2';
+  let smallBtn = !this.loggedIn ? 'input1-btn' : 'input2-btn';
 
 
     return (
