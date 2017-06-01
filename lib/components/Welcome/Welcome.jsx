@@ -12,7 +12,7 @@ export default class Welcome extends Component {
         <div className="welcome-page">
           <div className="welcome-contents">
             <h1> WEATHERLY </h1>
-            <Input handle={this.props.handle}/>
+            <Input inputHandle={this.props.inputHandle} handle={this.props.handle}/>
           </div>
         </div>
     );
