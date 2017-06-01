@@ -34,7 +34,7 @@
 }
 
 .input2-btn {
-  display: none;
+  /*display: none;*/
   height: 26px;
   margin-left: 10px;
   border-radius: 3px;

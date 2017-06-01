@@ -6,7 +6,7 @@ import './Weather.css';
 export default function Weather(props) {
   return (
     <div className='weather-container'>
-      <Input loggedIn={props.loggedIn}/>
+      <Input inputHandle={props.inputHandle} loggedIn={props.loggedIn}/>
       <Current weatherData={props.weatherData} />
       <section className='hourly-container'>
         <div></div>
