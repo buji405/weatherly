@@ -8,7 +8,7 @@ export default function Welcome(props) {
     <div className="welcome-page">
       <div className="welcome-contents">
         <h1> WEATHERLY </h1>
-        <Input inputHandle={this.props.inputHandle} handle={this.props.handle}/>
+        <Input inputHandle={props.inputHandle} handle={props.handle}/>
       </div>
     </div>
   );
