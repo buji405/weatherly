@@ -4,14 +4,16 @@ import Input from '../Input/Input';
 
 
 export default class Welcome extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
-        <div style={ {position: "relative"} } className="welcome-page">
+        <div className="welcome-page">
           <div className="welcome-contents">
             <h1> WEATHERLY </h1>
-            <Input />
+            <Input handle={this.props.handle}/>
           </div>
-        <img style={{position: "absolute", top: "0", zIndex: -1,  }} src="lib/assets/backgrounds/blue_gradient.png" />
         </div>
     );
   }
