@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   height: 465px;
-  width: 500px;
+  width: 100vw;
   /*border: 1px solid white;*/
 }
 
@@ -69,7 +69,8 @@ span{
 
 .current-blurb{
   font-weight: 200;
-  font-size: 34px;
+  font-size: 18px;
+  padding-bottom: 15px;
 }
 
 .hourly-container{
