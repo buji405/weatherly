@@ -6,13 +6,20 @@ import './Main.css'
 export default class Main extends Component {
   constructor() {
     super();
-    this.loggedIn = false;
+    this.state = {
+      loggedIn: false,
+    }
+  }
+
+  handleSubmit() {
+    alert('working!')
+    this.setState({
+      loggedIn: true,
+    })
   }
   render() {
-    if (!this.loggedIn) {
-      return (<Welcome />);
-    } else {
-      return (<Weather />)
-    }
+    if (!this.state.loggedIn) {
+      return <Welcome handle={this.handleSubmit.bind(this)} />
+    }  return <Weather loggedIn={this.state.loggedIn} />
   }
 }

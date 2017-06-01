@@ -5,15 +5,15 @@ import './Weather.css';
 
 
 export default class Weather extends Component {
-  constructor() {
-    super();
-    this.loggedIn = false;
+  constructor(props) {
+    super(props);
   }
 
   render() {
+    // console.log(this.loggedIn);
     return (
       <div className='weather-container'>
-        <Input />
+        <Input loggedIn={this.props.loggedIn}/>
         <Current />
         <section className='hourly-container'>
           <div></div>
