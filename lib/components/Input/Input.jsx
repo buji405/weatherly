@@ -26,9 +26,10 @@ submitInput() {
   render() {
   let small = !this.props.loggedIn ? 'input1' : 'input2';
   let smallBtn = !this.props.loggedIn ? 'input1-btn' : 'input2-btn';
+  let inputContainerLocation = !this.props.loggedIn ? 'input-container' : 'input-container2';
 
     return (
-      <div className="input-container">
+      <div className={inputContainerLocation}>
         <input className={small} type="text" value={this.state.input} placeholder="Enter city, zip or state" onChange={this.changeInput.bind(this)}/>
         <button className={smallBtn} onClick={ this.submitInput.bind(this) }>Submit</button>
       </div>

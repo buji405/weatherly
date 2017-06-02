@@ -2,6 +2,13 @@
   display: flex;
 }
 
+.input-container2 {
+  display: flex;
+  position: absolute;
+  right: 70px;
+  top: 40px;
+}
+
 .input1 {
   height: 50px;
   padding-left: 10px;
@@ -22,7 +29,7 @@
 }
 
 .input2 {
-  position: absolute;
+
   right: 300px;
   top: 52px;
   height: 26px;
