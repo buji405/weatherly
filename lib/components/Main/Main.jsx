@@ -3,6 +3,7 @@ import Weather from '../Weather/Weather';
 import Welcome from '../Welcome/Welcome';
 import WeatherData from '../../WeatherData';
 import $ from 'jquery';
+import key from '../../key';
 import './Main.css';
 
 export default class Main extends Component {
@@ -16,17 +17,16 @@ export default class Main extends Component {
   }
   componentDidMount() {
     this.getApi();
+    console.log('key', key);
   }
 
   getApi() {
-
-    $.get("http://api.wunderground.com/api/5b20db7ab5eb91e9/conditions/hourly/forecast10day/geolookup/q/OR/Portland.json")
+    $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/CO/Denver.json`)
       .then(data => {
+        const newWeatherObj = new WeatherData(data);
 
-        const newWeatherObj = new WeatherData(data)
-
-        this.setState({ weatherData: newWeatherObj })})
-      .catch(error => console.log("ERROR NOT WORKING"))
+        this.setState({ weatherData: newWeatherObj }); })
+      .catch(error => console.log('ERROR NOT WORKING'));
   }
 
   getInput(string) {
@@ -35,7 +35,10 @@ export default class Main extends Component {
 
   render() {
     if (!this.state.loggedIn) {
-      return <Welcome inputHandle={this.getInput.bind(this)} handle={this.getInput.bind(this)} />;
-    } return <Weather inputHandle={this.getInput.bind(this)} weatherData={this.state.weatherData} loggedIn={this.state.loggedIn} />;
+      return <Welcome inputHandle={this.getInput.bind(this)}
+                      handle={this.getInput.bind(this)} />;
+    } return <Weather inputHandle={this.getInput.bind(this)}
+                      weatherData={this.state.weatherData}
+                      loggedIn={this.state.loggedIn} />;
   }
 }
