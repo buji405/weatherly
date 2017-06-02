@@ -1,14 +1,23 @@
 
 import React, { Component } from 'react';
+import iconKeys from '../../icon-keys'
 import './Current.css'
 
 export default function Current(props) {
+
+  console.log("data", props.weatherData.icon);
+  console.log(iconKeys[props.weatherData.icon]);
+
+  let icon = `./lib/assets/icons/${iconKeys[props.weatherData.icon]}.svg`
+
   return (
     <div >
       <h1 className='logo'> WEATHERLY </h1>
       <div className='temp-container'>
         <h1 className='location'>{props.weatherData.city}, {props.weatherData.state}</h1>
-        <img className='icon' src={props.weatherData.icon} />
+
+        <img className='icon' src={icon} />
+
         <h3 className='current-temp'>{props.weatherData.current}<span className="current-temp-span">º</span></h3>
         <div className='high-low-container'>
           <h4>{props.weatherData.high}<span>º</span></h4>
