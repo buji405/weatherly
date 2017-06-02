@@ -20,11 +20,11 @@ export default class Main extends Component {
 
   getApi() {
 
-    $.get("http://api.wunderground.com/api/5b20db7ab5eb91e9/conditions/hourly/forecast10day/geolookup/q/CO/Denver.json")
+    $.get("http://api.wunderground.com/api/5b20db7ab5eb91e9/conditions/hourly/forecast10day/geolookup/q/OR/Portland.json")
       .then(data => {
-        console.log(data);
+
         const newWeatherObj = new WeatherData(data)
-        console.log(newWeatherObj);
+
         this.setState({ weatherData: newWeatherObj })})
       .catch(error => console.log("ERROR NOT WORKING"))
   }
