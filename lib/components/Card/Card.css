@@ -1,0 +1,14 @@
+.card{
+  display: flex;
+}
+
+.hour,
+.icon,
+.temp{
+  display: flex;
+  justify-content: center;
+}
+section{
+  display: flex;
+  flex-direction: column;
+}

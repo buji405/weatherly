@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../Input/Input';
 import Current from '../Current/Current';
+import Card from '../Card/Card';
 import './Weather.css';
 
 export default function Weather(props) {
@@ -9,11 +10,7 @@ export default function Weather(props) {
       <Input inputHandle={props.inputHandle} loggedIn={props.loggedIn}/>
       <Current weatherData={props.weatherData} />
       <section className='hourly-container'>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <Card weatherData={props.weatherData}/>
       </section>
     </div>
   );
