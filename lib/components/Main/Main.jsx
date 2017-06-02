@@ -17,14 +17,13 @@ export default class Main extends Component {
   }
   componentDidMount() {
     this.getApi();
-    console.log('key', key);
   }
 
   getApi() {
     $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/CO/Denver.json`)
       .then(data => {
         const newWeatherObj = new WeatherData(data);
-
+        console.log(newWeatherObj);
         this.setState({ weatherData: newWeatherObj }); })
       .catch(error => console.log('ERROR NOT WORKING'));
   }

@@ -5,9 +5,6 @@ import './Current.css'
 
 export default function Current(props) {
 
-  console.log("data", props.weatherData.icon);
-  console.log(iconKeys[props.weatherData.icon]);
-
   let icon = `./lib/assets/icons/${iconKeys[props.weatherData.icon]}.svg`
 
   return (
