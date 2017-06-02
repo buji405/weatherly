@@ -8,7 +8,7 @@ export default function Current(props) {
       <h1 className='logo'> WEATHERLY </h1>
       <div className='temp-container'>
         <h1 className='location'>{props.weatherData.city}, {props.weatherData.state}</h1>
-        <img src="lib/assets/icons/cloudy_icon.svg" />
+        <img className='icon' src={props.weatherData.icon} />
         <h3 className='current-temp'>{props.weatherData.current}<span className="current-temp-span">º</span></h3>
         <div className='high-low-container'>
           <h4>{props.weatherData.high}<span>º</span></h4>

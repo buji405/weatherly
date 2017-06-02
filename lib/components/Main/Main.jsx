@@ -24,6 +24,7 @@ export default class Main extends Component {
       .then(data => {
         console.log(data);
         const newWeatherObj = new WeatherData(data)
+        console.log(newWeatherObj);
         this.setState({ weatherData: newWeatherObj })})
       .catch(error => console.log("ERROR NOT WORKING"))
   }
