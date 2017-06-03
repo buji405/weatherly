@@ -12,24 +12,27 @@ export default class Main extends Component {
     this.state = {
       loggedIn: false,
       weatherData: {},
-      input: '',
+      input: 'autoip',
     };
   }
   componentDidMount() {
-    this.getApi();
+    this.getApi(this.state.input);
+    //grab from local storage [0]
   }
 
-  getApi() {
-    $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/CO/Denver.json`)
+  getApi(city) {
+
+    $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/${city}.json`)
       .then(data => {
         const newWeatherObj = new WeatherData(data);
-        console.log(newWeatherObj);
         this.setState({ weatherData: newWeatherObj }); })
       .catch(error => console.log('ERROR NOT WORKING'));
   }
 
   getInput(string) {
     this.setState({ input: string, loggedIn: true });
+    this.getApi(string);
+    // add local storage
   }
 
   render() {
