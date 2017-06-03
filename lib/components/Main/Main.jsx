@@ -21,32 +21,28 @@ export default class Main extends Component {
     const cityStored = localStorage.getItem('cityName');
 
     if (cityStored === null) {
-      this.getApi(this.state.input)
+      this.getApi(this.state.input);
     } else {
-      this.getApi(cityStored)
+      this.getApi(cityStored);
       this.state.loggedIn = true;
     }
   }
 
   getApi(city) {
-
     $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/${city}.json`)
       .then(data => {
         const newWeatherObj = new WeatherData(data);
-        this.setState({ weatherData: newWeatherObj, inputError: false})
+        this.setState({ weatherData: newWeatherObj, inputError: false });
         localStorage.setItem('cityName', city);
       })
-      .catch(error => this.setState({inputError: true})
+      .catch(error => this.setState({ inputError: true })
     );
-
   }
-
 
   getInput(string) {
     console.log('string', string);
     this.setState({ input: string, loggedIn: true });
     this.getApi(string);
-
   }
 
   render() {
@@ -57,6 +53,5 @@ export default class Main extends Component {
                       weatherData={this.state.weatherData}
                       loggedIn={this.state.loggedIn}
                       inputError={this.state.inputError}/>;
-
   }
 }
