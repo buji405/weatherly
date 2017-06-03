@@ -11,7 +11,7 @@ export default function Current(props) {
     <div >
       <h1 className='logo'> WEATHERLY </h1>
       <div className='temp-container'>
-        <h1 className='location'>{props.weatherData.city}, {props.weatherData.state}</h1>
+        <h1 className='location'>{props.weatherData.city}</h1>
 
         <img className='icon' src={icon} />
 
