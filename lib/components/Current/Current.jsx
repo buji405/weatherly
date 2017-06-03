@@ -5,7 +5,7 @@ import './Current.css'
 
 export default function Current(props) {
 
-  let icon = `./lib/assets/icons/${iconKeys[props.weatherData.icon]}.svg`
+  let icon = `./lib/assets/icons/${iconKeys[props.weatherData.icon]}.svg`;
 
   return (
     <div >

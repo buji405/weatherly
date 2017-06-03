@@ -5,6 +5,7 @@ import WeatherData from '../../WeatherData';
 import $ from 'jquery';
 import key from '../../key';
 import './Main.css';
+import '../Input/Input.css'
 
 export default class Main extends Component {
   constructor() {
@@ -13,11 +14,18 @@ export default class Main extends Component {
       loggedIn: false,
       weatherData: {},
       input: 'autoip',
+      inputError: false,
     };
   }
   componentDidMount() {
-    this.getApi(this.state.input);
-    //grab from local storage [0]
+    const cityStored = localStorage.getItem('cityName');
+
+    if (cityStored === null) {
+      this.getApi(this.state.input)
+    } else {
+      this.getApi(cityStored)
+      this.state.loggedIn = true;
+    }
   }
 
   getApi(city) {
@@ -25,14 +33,20 @@ export default class Main extends Component {
     $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/${city}.json`)
       .then(data => {
         const newWeatherObj = new WeatherData(data);
-        this.setState({ weatherData: newWeatherObj }); })
-      .catch(error => console.log('ERROR NOT WORKING'));
+        this.setState({ weatherData: newWeatherObj, inputError: false})
+        localStorage.setItem('cityName', city);
+      })
+      .catch(error => this.setState({inputError: true})
+    );
+
   }
 
+
   getInput(string) {
+    console.log('string', string);
     this.setState({ input: string, loggedIn: true });
     this.getApi(string);
-    // add local storage
+
   }
 
   render() {
@@ -41,6 +55,8 @@ export default class Main extends Component {
                       handle={this.getInput.bind(this)} />;
     } return <Weather inputHandle={this.getInput.bind(this)}
                       weatherData={this.state.weatherData}
-                      loggedIn={this.state.loggedIn} />;
+                      loggedIn={this.state.loggedIn}
+                      inputError={this.state.inputError}/>;
+
   }
 }
