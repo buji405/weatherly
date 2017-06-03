@@ -32,13 +32,13 @@ submitInput() {
     return (
       <div className={inputContainerLocation}>
 
-        <input className={small} type="text" value={this.state.input} placeholder="Enter city, zip or state" onChange={this.changeInput.bind(this)}/>
-        <button className={smallBtn} onClick={ this.submitInput.bind(this) }><img className={search} src="lib/assets/icons/black-search.svg" /></button>
         <div className='input-error-container'>
+        <input className={small} type="text" value={this.state.input} placeholder="Enter city, zip or state" onChange={this.changeInput.bind(this)}/>
           <div className={error}>
-            <p className="error-text">Please input a valid city</p>
+            <p className="error-text">Please input a valid city, zip or state</p>
           </div>
         </div>
+        <button className={smallBtn} onClick={ this.submitInput.bind(this) }><img className={search} src="lib/assets/icons/black-search.svg" /></button>
 
       </div>
     )
