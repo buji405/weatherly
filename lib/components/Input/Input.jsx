@@ -16,13 +16,19 @@ changeInput(e) {
 })
 }
 
+  enterClick(e) {
+    if (e.key === 'Enter') {
+      this.submitInput()
+    }
+  }
+
 submitInput() {
   this.props.inputHandle(this.state.input)
   this.setState({
     input: ''
   })
-
 }
+
   render() {
   let small = !this.props.loggedIn ? 'input1' : 'input2';
   let smallBtn = !this.props.loggedIn ? 'input1-btn' : 'input2-btn';
@@ -33,12 +39,12 @@ submitInput() {
       <div className={inputContainerLocation}>
 
         <div className='input-error-container'>
-        <input className={small} type="text" value={this.state.input} placeholder="Enter city, zip or state" onChange={this.changeInput.bind(this)}/>
+        <input className={small} type="text" value={this.state.input} placeholder="Enter city, zip or state" onKeyUp={this.enterClick.bind(this)} onChange={this.changeInput.bind(this)}/>
           <div className={error}>
             <p className="error-text">Please input a valid city, zip or state</p>
           </div>
         </div>
-        <button className={smallBtn} onClick={ this.submitInput.bind(this) }><img className={search} src="lib/assets/icons/black-search.svg" /></button>
+        <button className={smallBtn}  onClick={ this.submitInput.bind(this) }><img className={search} src="lib/assets/icons/black-search.svg" /></button>
 
       </div>
     )

@@ -8,8 +8,8 @@ export default function Weather(props) {
   return (
     <div className='weather-container'>
       <Input inputHandle={props.inputHandle}
-                loggedIn={props.loggedIn}
-                inputError={props.inputError}/>
+              inputError={props.inputError}
+                loggedIn={props.loggedIn}/>
       <Current weatherData={props.weatherData} />
       <section className='hourly-container'>
         <Card weatherData={props.weatherData}/>
