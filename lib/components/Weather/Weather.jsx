@@ -5,7 +5,6 @@ import Card from '../Card/Card';
 import './Weather.css';
 
 export default function Weather(props) {
-  console.log(props.dailyAppear);
   return (
     <div className='weather-container'>
       <Input inputHandle={props.inputHandle}
