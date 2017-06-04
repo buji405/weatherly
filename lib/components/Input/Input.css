@@ -29,6 +29,11 @@
   outline: none;
 }
 
+.input1-btn:hover,
+.input2-btn:hover {
+  cursor: pointer;
+}
+
 .input2 {
   right: 300px;
   top: 52px;
