@@ -4,8 +4,10 @@ import iconKeys from '../../icon-keys'
 import './Current.css'
 
 export default function Current(props) {
-
   const icon = `./lib/assets/icons/${iconKeys[props.weatherData.icon]}.svg`;
+
+const switchButton = props.dailyAppear ? 'switch-selection-left' : 'switch-selection-right'
+
 
   return (
     <div >
@@ -22,6 +24,18 @@ export default function Current(props) {
         </div>
         <h2 className='current-day'>{props.weatherData.time}</h2>
         <h2 className='current-blurb'>{props.weatherData.blurb}</h2>
+      </div>
+      <div className="switch switch-blue">
+        <input type="radio" className="switch-input" value="week2" id="week2" />
+
+        <label className="switch-label switch-label-off" onClick={(e) => props.changeCards(e)}>Hourly</label>
+
+        <input type="radio" className="switch-input" value="month2" id="month2"/>
+
+        <label className="switch-label switch-label-on" onClick={(e) => props.changeCards(e)}>Daily</label>
+
+        <span className={switchButton}></span>
+
       </div>
     </div>
   );
