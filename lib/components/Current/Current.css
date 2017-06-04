@@ -63,7 +63,7 @@
 
 .location {
   font-size: 30px;
-  padding: 10px 0 45px 0;
+  padding: 40px 0 25px 0;
   font-weight: 200;
 }
 
@@ -78,7 +78,7 @@
 .current-temp {
   display: flex;
   justify-content: center;
-  font-size: 80px;
+  font-size: 73px;
   font-weight: 400;
   padding-bottom: 10px;
 }
@@ -89,7 +89,7 @@
 }
 
 img {
-  width: 170px;
+  width: 152px;
   padding-bottom: 10px;
 }
 
