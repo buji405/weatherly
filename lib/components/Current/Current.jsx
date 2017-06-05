@@ -20,8 +20,8 @@ export default function Current(props) {
           <span className="current-temp-span">º</span>
         </h3>
         <div className='high-low-container'>
-          <h4>{props.weatherData.high}<span>º</span></h4>
-          <h4>{props.weatherData.low}<span>º</span></h4>
+          <h4 className='high-temp'>{props.weatherData.high}<span>º</span></h4>
+          <h4 className='low-temp'>{props.weatherData.low}<span>º</span></h4>
         </div>
         <h2 className='current-day'>{props.weatherData.time}</h2>
         <h2 className='current-blurb'>{props.weatherData.blurb}</h2>

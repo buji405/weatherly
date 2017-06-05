@@ -46,6 +46,7 @@ export default class Main extends Component {
     $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/${city}.json`)
       .then(data => {
         const newWeatherObj = new WeatherData(data);
+        console.log(data);
         this.setState({ weatherData: newWeatherObj, inputError: false });
         localStorage.setItem('cityName', city);
       })
