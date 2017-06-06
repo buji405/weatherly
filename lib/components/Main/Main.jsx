@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Weather from '../Weather/Weather';
 import Welcome from '../Welcome/Welcome';
 import WeatherData from '../../WeatherData';
+import cities from '../../cities'
+import Trie from '../../Trie';
 import $ from 'jquery';
 import key from '../../key';
 import './Main.css';
@@ -16,12 +18,13 @@ export default class Main extends Component {
       input: 'autoip',
       inputError: false,
       dailyAppear: true,
+      trie: new Trie(),
     };
   }
 
   componentDidMount() {
+    this.state.trie.populate(cities.data);
     const cityStored = localStorage.getItem('cityName');
-
     if (cityStored === null) {
       this.getApi(this.state.input);
     } else {
@@ -46,7 +49,6 @@ export default class Main extends Component {
     $.get(`http://api.wunderground.com/api/${key}/conditions/hourly/forecast10day/geolookup/q/${city}.json`)
       .then(data => {
         const newWeatherObj = new WeatherData(data);
-        console.log(data);
         this.setState({ weatherData: newWeatherObj, inputError: false });
         localStorage.setItem('cityName', city);
       })
@@ -62,12 +64,14 @@ export default class Main extends Component {
   render() {
     if (!this.state.loggedIn) {
       return <Welcome inputHandle={this.getInput.bind(this)}
-                      handle={this.getInput.bind(this)} />;
+                      handle={this.getInput.bind(this)}
+                      autoComplete={this.state.trie} />;
     } return <Weather inputHandle={this.getInput.bind(this)}
                       weatherData={this.state.weatherData}
                       loggedIn={this.state.loggedIn}
                       dailyAppear={this.state.dailyAppear}
                       inputError={this.state.inputError}
+                      autoComplete={this.state.trie}
                       changeCards={this.changeCards.bind(this)}/>;
   }
 }

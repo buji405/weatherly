@@ -75,7 +75,6 @@
   height: 70px;
   width: 134px;
   background-color: #d61313;
-
 }
 
 .error-hide {
@@ -85,4 +84,47 @@
 .error-text {
   color: #fff;
   padding: 10px;
+}
+
+.suggestion1 {
+  position: absolute;
+  top: 60.5%;
+  width: 300px;
+  list-style: none;
+  background: rgb(255, 255, 255);
+}
+
+.suggestion1-btn {
+  border: none;
+  background: none;
+  font-size: 18px;
+}
+
+.suggestion1-btn:hover,
+.suggestion2-btn:hover {
+  cursor: pointer;
+}
+
+.suggestion2 {
+  position: absolute;
+  top: 100%;
+  width: 134px;
+  list-style: none;
+  background: rgb(255, 255, 255);
+}
+
+.suggestion2-btn {
+  border: none;
+  background: none;
+  font-size: 15px;
+}
+
+.suggestion2-select,
+.suggestions1-select {
+  border-bottom: 1px solid lightgrey;
+}
+
+.select:hover {
+  background-color: lightgrey;
+  cursor: pointer;
 }

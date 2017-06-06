@@ -9,6 +9,7 @@ export default function Welcome(props) {
         <h1> WEATHERLY </h1>
         <Input inputHandle={props.inputHandle}
                handle={props.handle}
+               autoComplete={props.autoComplete}
                inputError={props.inputError}/>
       </div>
     </div>

@@ -5,11 +5,11 @@ import Card from '../Card/Card';
 import './Weather.css';
 
 export default function Weather(props) {
-  console.log('props', props);
   return (
     <div className='weather-container'>
       <Input inputHandle={props.inputHandle}
              inputError={props.inputError}
+             autoComplete={props.autoComplete}
              loggedIn={props.loggedIn}/>
       <Current weatherData={props.weatherData}
                changeCards={props.changeCards}
