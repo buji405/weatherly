@@ -1,7 +1,6 @@
 .welcome-page {
   display: flex;
   justify-content: center;
-  padding-top: 15%;
   background-image: url('http://blog.hdwallsource.com/wp-content/uploads/2014/11/gradient-background-26046-26731-hd-wallpapers.jpg-1024x640.png');
   background-repeat: no-repeat;
   background-size: cover;
