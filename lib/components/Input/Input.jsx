@@ -14,11 +14,10 @@ export default class Input extends Component {
   }
 
   changeInput(e) {
-
-    this.populateSuggetsions()
     this.setState({
       input: e.target.value,
     });
+    this.populateSuggetsions();
   }
 
   enterClick(e) {
@@ -28,21 +27,24 @@ export default class Input extends Component {
   }
 
   submitInput() {
-    this.populateSuggetsions();
     this.props.inputHandle(this.state.input);
     this.setState({
       input: '',
     });
+    this.populateSuggetsions();
   }
 
   populateSuggetsions() {
-    let searchInput = $('input').val();
-    let suggestionStyleBtn = !this.props.loggedIn ? 'suggestion1-btn' : 'suggestion2-btn';
-    let suggestions = this.props.autoComplete.suggest(searchInput);
+    const searchInput = $('input').val();
+    const suggestionStyleBtn = !this.props.loggedIn ?
+                              'suggestion1-btn' :
+                              'suggestion2-btn';
+
+    const suggestions = this.props.autoComplete.suggest(searchInput);
     const mapSuggestions = suggestions.map((suggestion, i) =>
      <li key={Date.now() + i}className="select">
        <button className={suggestionStyleBtn}>{suggestion}</button>
-     </li>).slice(0,10);
+     </li>).slice(0, 10);
 
     this.setState({ suggestions: mapSuggestions });
   }
@@ -50,18 +52,18 @@ export default class Input extends Component {
   citySelect(e) {
     this.props.inputHandle(e.target.textContent);
     this.setState({ suggestions: '',
-                    input: '' });
+                  });
   }
 
   render() {
-    let small = !this.props.loggedIn ? 'input1' : 'input2';
-    let smallBtn = !this.props.loggedIn ? 'input1-btn' : 'input2-btn';
-    let search = !this.props.loggedIn ? 'search1' : 'search2';
-    let inputContainerLocation = !this.props.loggedIn ? 'input-container' :
+    const small = !this.props.loggedIn ? 'input1' : 'input2';
+    const smallBtn = !this.props.loggedIn ? 'input1-btn' : 'input2-btn';
+    const search = !this.props.loggedIn ? 'search1' : 'search2';
+    const inputContainerLocation = !this.props.loggedIn ? 'input-container' :
                                                       'input-container2';
-    let error = !this.props.inputError ? 'error-hide' : 'error-show';
+    const error = !this.props.inputError ? 'error-hide' : 'error-show';
 
-    let suggestionStyle = !this.props.loggedIn ? 'suggestion1' : 'suggestion2';
+    const suggestionStyle = !this.props.loggedIn ? 'suggestion1' : 'suggestion2';
 
     return (
       <div className={inputContainerLocation}>
@@ -80,7 +82,8 @@ export default class Input extends Component {
         <button className={smallBtn} onClick={ this.submitInput.bind(this) }>
           <img className={search} src="lib/assets/icons/black-search.svg" />
         </button>
-        <div className={suggestionStyle} onClick={this.citySelect.bind(this)}>{this.state.suggestions}</div>
+        <div className={suggestionStyle}
+             onClick={this.citySelect.bind(this)}>{this.state.suggestions}</div>
       </div>
     );
   }
