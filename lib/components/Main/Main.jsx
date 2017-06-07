@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Weather from '../Weather/Weather';
 import Welcome from '../Welcome/Welcome';
 import WeatherData from '../../WeatherData';
-import cities from '../../cities'
+import cities from '../../cities';
 import Trie from '../../Trie';
 import $ from 'jquery';
 import key from '../../key';
