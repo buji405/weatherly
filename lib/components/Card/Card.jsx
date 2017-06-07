@@ -12,8 +12,8 @@ export default function Card(props) {
     hourCss = 'hour-container-hide';
     dailyCss = 'daily-container';
   } else {
-    dailyCss = 'daily-container-hide';
     hourCss = 'hour-container';
+    dailyCss = 'daily-container-hide';
   }
 
   return (

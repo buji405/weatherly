@@ -9,7 +9,6 @@ export default class Input extends Component {
       location: '',
       input: '',
       suggestions: [],
-
     };
   }
 
@@ -17,7 +16,7 @@ export default class Input extends Component {
     this.setState({
       input: e.target.value,
     });
-    this.populateSuggetsions();
+    this.populateSuggestions();
   }
 
   enterClick(e) {
@@ -31,14 +30,13 @@ export default class Input extends Component {
     this.setState({
       input: '',
     });
-    this.populateSuggetsions();
   }
 
-  populateSuggetsions() {
+  populateSuggestions() {
     const searchInput = $('input').val();
     const suggestionStyleBtn = !this.props.loggedIn ?
-                              'suggestion1-btn' :
-                              'suggestion2-btn';
+                               'suggestion1-btn' :
+                               'suggestion2-btn';
 
     const suggestions = this.props.autoComplete.suggest(searchInput);
     const mapSuggestions = suggestions.map((suggestion, i) =>
@@ -52,7 +50,7 @@ export default class Input extends Component {
   citySelect(e) {
     this.props.inputHandle(e.target.textContent);
     this.setState({ suggestions: '',
-                  });
+                    input: '' });
   }
 
   render() {
@@ -83,7 +81,8 @@ export default class Input extends Component {
           <img className={search} src="lib/assets/icons/black-search.svg" />
         </button>
         <div className={suggestionStyle}
-             onClick={this.citySelect.bind(this)}>{this.state.suggestions}</div>
+             onClick={this.citySelect.bind(this)}>{this.state.suggestions}
+        </div>
       </div>
     );
   }
