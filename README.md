@@ -1,31 +1,19 @@
-# React Starter Kit
+# Weathrly - A Turing Mod 2 FEE Project
 
-To install the dependencies:
+Synopsis
 
-```
-npm install
-```
+This project contains a weather application that pulls current weather data from the Weather Underground API.
 
-To fire up a development server:
+Installation
 
-```
-npm start
-```
+Clone the repository and run npm install
 
-Once the server is running, you can visit:
+To start the application, run npm start in your terminal window from the top level of the repository directory.
 
-* `http://localhost:8080/webpack-dev-server/` to run your application.
-* `http://localhost:8080/webpack-dev-server/test.html` to run your test suite in the browser.
+Tests
 
-To build the static files:
+The Weathrly module has Enzyme/Jest tests that can be run to verify functionality.
 
-```js
-npm run build
-```
+To run all tests:
 
-
-To run tests in Node:
-
-```js
-npm test
-```
+```> npm test```
